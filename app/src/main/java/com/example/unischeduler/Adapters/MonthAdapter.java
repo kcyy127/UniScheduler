@@ -1,14 +1,13 @@
 package com.example.unischeduler.Adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.unischeduler.Activities.MainActivity;
 import com.example.unischeduler.AdapterToActivity;
 import com.example.unischeduler.databinding.ItemMonthBinding;
 
@@ -61,7 +60,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
     }
 
     public interface DateToMonthInterface {
-        public LocalDate customClick(int adapterPosition, int date);
+        public LocalDate customClick(LocalDate adapterPosition, int date);
     }
 
     public class MonthViewHolder extends RecyclerView.ViewHolder implements DateToMonthInterface {
@@ -79,24 +78,36 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
             for (int i = 1; i <= localDate.dayOfMonth().getMaximumValue(); i++) {
                 dates.add(i);
             }
-            for (int i = 0; i < localDate.getDayOfWeek(); i++) {
+            for (int i = 0; i < localDate.getDayOfWeek() % 7; i++) {
                 dates.add(0, null);
             }
 
-            DateAdapter dateAdapter = new DateAdapter(context, dates, getAdapterPosition(), this, localDate, selectedDate);
-            binding.gvDays.setAdapter(dateAdapter);
+            binding.rvDates.setLayoutManager(new GridLayoutManager(context, 7));
+            DateAdapterTwo dateAdapterTwo = new DateAdapterTwo(context, dates, selectedDate, months.get(getAdapterPosition()), this);
+            binding.rvDates.setAdapter(dateAdapterTwo);
 
         }
 
+//        @Override
+//        public LocalDate customClick(LocalDate monthDate, int date) {
+////            Log.i(TAG, "We've been custom clicked!");
+//            selectedDate = new LocalDate(months.get(adapterPosition).getYear(),
+//                    months.get(adapterPosition).getMonthOfYear(), date);
+//            Log.i(TAG, DateTimeFormat.forPattern("YYYY, MMM dd").print(selectedDate));
+//            notifyItemChanged(oldAdapterPosition);
+//            oldAdapterPosition = adapterPosition;
+//            notifyItemChanged(adapterPosition);
+//            adapterToActivity.changeSelectedDate(selectedDate);
+//            return selectedDate;
+//        }
+
         @Override
-        public LocalDate customClick(int adapterPosition, int date) {
-//            Log.i(TAG, "We've been custom clicked!");
-            selectedDate = new LocalDate(months.get(adapterPosition).getYear(),
-                    months.get(adapterPosition).getMonthOfYear(), date);
-            Log.i(TAG, DateTimeFormat.forPattern("YYYY, MMM dd").print(selectedDate));
+        public LocalDate customClick(LocalDate monthDate, int date) {
+
+            selectedDate = new LocalDate(monthDate.getYear(), monthDate.getMonthOfYear(), date);
             notifyItemChanged(oldAdapterPosition);
-            oldAdapterPosition = adapterPosition;
-            notifyItemChanged(adapterPosition);
+            oldAdapterPosition = months.indexOf(monthDate);
+            notifyItemChanged(months.indexOf(monthDate));
             adapterToActivity.changeSelectedDate(selectedDate);
             return selectedDate;
         }

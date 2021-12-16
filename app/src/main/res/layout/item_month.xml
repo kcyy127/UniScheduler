@@ -16,15 +16,12 @@
             android:text="hey"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.example.unischeduler.MyGridView
-            android:layout_marginTop="10dp"
-            android:id="@+id/gvDays"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:numColumns="7"
-            app:layout_constraintTop_toBottomOf="@id/tvMonth"
-            />
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvMonth" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

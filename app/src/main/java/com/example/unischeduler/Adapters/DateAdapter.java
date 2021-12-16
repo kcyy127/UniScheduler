@@ -62,7 +62,7 @@ public class DateAdapter extends BaseAdapter {
                 convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        selectedDate = dateToMonthInterface.customClick(adapterPosition, dates.get(datePosition));
+//                        selectedDate = dateToMonthInterface.customClick(adapterPosition, dates.get(datePosition));
                         Log.i(TAG, DateTimeFormat.forPattern("YYYY MMM dd").print(selectedDate));
                         notifyDataSetChanged();
                     }
