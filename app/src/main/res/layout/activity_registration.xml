@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.RegistrationActivity">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            style="@style/TextView.UniScheduler.LargeHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="170dp"
+            android:text="Registration"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading"
+            android:layout_marginTop="@dimen/margin_input_title"
+            android:id="@+id/viewPager" />
+
+
+        <ProgressBar
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            app:layout_constraintTop_toTopOf="@id/btnNext"
+            app:layout_constraintBottom_toBottomOf="@id/btnNext"
+            app:layout_constraintRight_toLeftOf="@id/btnNext"
+            android:layout_marginRight="18dp"
+            android:id="@+id/progressBar"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="144dp"
+            android:layout_marginRight="48dp"
+            android:src="@drawable/icon_next"
+            style="@style/ImageButton.UniScheduler.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewPager" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

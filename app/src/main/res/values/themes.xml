@@ -29,11 +29,16 @@
         <!-- Customize your theme here. -->
         <item name="android:colorBackground">@color/my_dark_background</item>
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textViewStyle">@style/TextView.UniScheduler.Default</item>
+    </style>
+
+    <style name="Theme.UniScheduler.Spinner" parent="TextView.UniScheduler.Default">
+        <item name="android:textColorSecondary">@color/my_white</item>
     </style>
 
     <style name="TextView.UniScheduler.Default" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/ubuntu_medium</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">@color/my_white</item>
     </style>
 
     <style name="TextView.UniScheduler.Heading" parent="TextView.UniScheduler.Default">
@@ -41,8 +46,197 @@
         <item name="fontFamily">@font/ubuntu_bold</item>
     </style>
 
+    <style name="TextView.UniScheduler.Subheading" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">@dimen/heading</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+    </style>
+
     <style name="TextView.UniScheduler.Month" parent="TextView.UniScheduler.Default">
         <item name="android:textSize">@dimen/month</item>
         <item name="fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="TextView.UniScheduler.Week" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/my_white_50</item>
+    </style>
+
+    <style name="TextAppearance.UniScheduler.NavBar" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/ubuntu_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="TextView.UniScheduler.Hour" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/my_white_50</item>
+        <item name="fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="TextView.UniScheduler.EventHeading" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/my_white</item>
+    </style>
+
+    <style name="TextView.UniScheduler.EventDescription" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/my_white_50</item>
+    </style>
+
+
+    <style name="TextView.UniScheduler.LargeHeading" parent="TextView.UniScheduler.Heading">
+        <item name="android:textSize">36sp</item>
+    </style>
+
+    <style name="TextView.UniScheduler.Section" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/my_white</item>
+        <item name="fontFamily">@font/ubuntu_bold</item>
+    </style>
+
+    <style name="TextView.UniScheduler.CourseName" parent="TextView.UniScheduler.Default">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#B4B3B7</item>
+    </style>
+
+    <style name="EditText.UniScheduler.LargeInputField" parent="Widget.AppCompat.EditText" >
+        <item name="android:background">@drawable/background_input_field</item>
+        <item name="android:layout_marginHorizontal">42dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textColor">@color/my_white</item>
+        <item name="android:textColorHint">@color/my_white_50</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ImageButton.UniScheduler.Large" parent="Widget.AppCompat.ImageButton">
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:padding">24dp</item>
+        <item name="android:background">@drawable/background_purple_circle_button</item>
+    </style>
+
+    <style name="TextAppearance.UniScheduler.TextInputLayout.Hint" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/my_white_50</item>
+    </style>
+
+    <style name="TextInputLayout.UniScheduler.ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:paddingStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin_input_horizontal</item>
+        <item name="boxBackgroundColor">@color/my_white_20</item>
+    </style>
+
+    <style name="TextInputLayout.UniScheduler.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin_input_horizontal</item>
+        <item name="boxBackgroundColor">@color/my_white_20</item>
+    </style>
+
+    <style name="TextInputLayout.UniScheduler.OutlinedBox.Search" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/my_white_20</item>
+    </style>
+
+    <style name="TextInputLayout.UniScheduler.OutlinedBox.Create" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius_create</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/my_white_20</item>
+    </style>
+
+    <style name="TextInputLayout.UniScheduler.ExposedDropdownMenu.Create" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:paddingStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius_create</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius_create</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/my_white_20</item>
+    </style>
+
+    <style name="EditText.UniScheduler.Create" parent="Widget.AppCompat.EditText">
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textColor">@color/my_white</item>
+        <item name="android:textColorHint">@color/my_white_50</item>
+
+    </style>
+
+    <style name="TextAppearance.UniScheduler.Chip" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/ubuntu_medium</item>
+    </style>
+
+    <style name="Chip.UniScheduler.DOW" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:checkable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="chipCornerRadius">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.UniScheduler.Chip</item>
+        <item name="chipMinTouchTargetSize">0dp</item>
+        <item name="android:width">36dp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="android:textAlignment">center</item>
+
+    </style>
+
+    <style name="MaterialCalendar.UniScheduler" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/my_purple</item>
+        <item name="colorOnPrimary">@color/my_dark_background</item>
+        <item name="colorOnSurface">@color/my_white</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="android:textColorPrimary">@color/my_white</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.UniScheduler.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.UniScheduler.MediumComponent</item>
+        <item name="colorSurface">@color/my_dark_background</item>
+        <item name="textColorAlertDialogListItem">@color/my_white</item>
+        <item name="colorError">#E55555</item>
+    </style>
+
+    <style name="ShapeAppearance.UniScheduler.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.UniScheduler.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">16dp</item>
+        <item name="backgroundColor">@color/my_white</item>
+    </style>
+
+    <style name="MaterialTimePicker.UniScheduler" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorPrimary">@color/my_purple</item>
+        <item name="colorOnPrimary">@color/my_dark_background</item>
+        <item name="colorOnSurface">@color/my_white</item>
+        <item name="colorSurface">@color/my_dark_background</item>
+        <item name="android:textColorPrimary">@color/my_white</item>
+        <item name="fontFamily">@font/ubuntu_medium</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.UniScheduler.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.UniScheduler.MediumComponent</item>
     </style>
 </resources>

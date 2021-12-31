@@ -2,4 +2,14 @@
 <resources>
     <dimen name="heading">20sp</dimen>
     <dimen name="month">18sp</dimen>
+    <dimen name="navigation_bar_corners">24dp</dimen>
+    <dimen name="margin_heading_top">36dp</dimen>
+    <dimen name="box_corner_radius">32dp</dimen>
+    <dimen name="box_corner_radius_create">16dp</dimen>
+
+
+
+    <dimen name="margin_input_horizontal">48dp</dimen>
+    <dimen name="margin_input_between">36dp</dimen>
+    <dimen name="margin_input_title">72dp</dimen>
 </resources>

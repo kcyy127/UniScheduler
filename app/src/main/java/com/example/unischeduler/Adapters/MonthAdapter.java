@@ -8,7 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.unischeduler.AdapterToActivity;
+import com.example.unischeduler.MonthToHomeInterface;
+import com.example.unischeduler.UniSchedulerApplication;
 import com.example.unischeduler.databinding.ItemMonthBinding;
 
 import org.joda.time.LocalDate;
@@ -24,14 +25,14 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
     private Context context;
     private List<LocalDate> months;
     private LocalDate selectedDate;
-    private AdapterToActivity adapterToActivity;
+    private MonthToHomeInterface mthInterface;
     private int oldAdapterPosition;
 
-    public MonthAdapter(Context context, List<LocalDate> months, AdapterToActivity adapterToActivity) {
+    public MonthAdapter(Context context, List<LocalDate> months, MonthToHomeInterface adapterToActivity) {
         this.context = context;
         this.months = months;
-        selectedDate = LocalDate.now();
-        this.adapterToActivity = adapterToActivity;
+        selectedDate = UniSchedulerApplication.getInstance().getSelectedDate();
+        this.mthInterface = adapterToActivity;
         this.oldAdapterPosition = 0;
     }
 
@@ -60,7 +61,8 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
     }
 
     public interface DateToMonthInterface {
-        public LocalDate customClick(LocalDate adapterPosition, int date);
+        LocalDate dateClick(LocalDate adapterPosition, int date);
+        void dateLongClick();
     }
 
     public class MonthViewHolder extends RecyclerView.ViewHolder implements DateToMonthInterface {
@@ -88,28 +90,20 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.MonthViewHol
 
         }
 
-//        @Override
-//        public LocalDate customClick(LocalDate monthDate, int date) {
-////            Log.i(TAG, "We've been custom clicked!");
-//            selectedDate = new LocalDate(months.get(adapterPosition).getYear(),
-//                    months.get(adapterPosition).getMonthOfYear(), date);
-//            Log.i(TAG, DateTimeFormat.forPattern("YYYY, MMM dd").print(selectedDate));
-//            notifyItemChanged(oldAdapterPosition);
-//            oldAdapterPosition = adapterPosition;
-//            notifyItemChanged(adapterPosition);
-//            adapterToActivity.changeSelectedDate(selectedDate);
-//            return selectedDate;
-//        }
-
         @Override
-        public LocalDate customClick(LocalDate monthDate, int date) {
+        public LocalDate dateClick(LocalDate monthDate, int date) {
 
             selectedDate = new LocalDate(monthDate.getYear(), monthDate.getMonthOfYear(), date);
             notifyItemChanged(oldAdapterPosition);
             oldAdapterPosition = months.indexOf(monthDate);
             notifyItemChanged(months.indexOf(monthDate));
-            adapterToActivity.changeSelectedDate(selectedDate);
+            mthInterface.changeSelectedDate(selectedDate);
             return selectedDate;
+        }
+
+        @Override
+        public void dateLongClick() {
+            mthInterface.startScheduleActivity();
         }
     }
 }

@@ -3,17 +3,87 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.1546875" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.25" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.11538461538461539" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.11538461538461539" />
+        <entry key="app/src/main/res/drawable/background_event.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/background_indicator.xml" value="0.3896833503575077" />
+        <entry key="app/src/main/res/drawable/background_input_field.xml" value="0.4394898846954569" />
+        <entry key="app/src/main/res/drawable/background_navigation_bar.xml" value="0.3896833503575077" />
+        <entry key="app/src/main/res/drawable/background_purple_round_button.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/background_purple_rounded_button.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/background_section_dialog.xml" value="0.12478632478632479" />
+        <entry key="app/src/main/res/drawable/background_spinner_list.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/checkbox_repeat_selected.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/checkbox_selector.xml" value="0.2890625" />
+        <entry key="app/src/main/res/drawable/checkbox_status_completed.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/checkbox_status_progress.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/checkbox_status_unstarted.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/color_chip_background.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/date_selected.xml" value="0.3697916666666667" />
+        <entry key="app/src/main/res/drawable/divider.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_account.xml" value="0.31666666666666665" />
+        <entry key="app/src/main/res/drawable/icon_add.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_add_image.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/drawable/icon_back.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_calendar_selected.xml" value="0.2890625" />
         <entry key="app/src/main/res/drawable/icon_calendar_unselected.xml" value="0.2890625" />
+        <entry key="app/src/main/res/drawable/icon_checkmark.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_courses.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_email.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_logout.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_next.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_password.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_profile.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_search.xml" value="0.3208578637510513" />
         <entry key="app/src/main/res/drawable/icon_test.xml" value="0.2890625" />
+        <entry key="app/src/main/res/drawable/icon_univeristy.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_university.xml" value="0.31324786324786325" />
+        <entry key="app/src/main/res/drawable/inset_delete_dialog.xml" value="0.144017094017094" />
+        <entry key="app/src/main/res/drawable/inset_section_dialog.xml" value="0.12478632478632479" />
         <entry key="app/src/main/res/drawable/selector_date.xml" value="0.3697916666666667" />
+        <entry key="app/src/main/res/drawable/shape_event_color.xml" value="0.3208578637510513" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/activity_add_course.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_course.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/activity_courses.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_create_event.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_create_task.xml" value="0.30445752733389403" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.26875" />
+        <entry key="app/src/main/res/layout/activity_individual_course.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3338541666666667" />
+        <entry key="app/src/main/res/layout/activity_new_task.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.2965811965811966" />
+        <entry key="app/src/main/res/layout/activity_schedule.xml" value="0.2547008547008547" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.2965811965811966" />
+        <entry key="app/src/main/res/layout/dialog_delete_confirmation.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/dialog_section.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/fragment_general.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/fragment_h_w.xml" value="0.2965811965811966" />
+        <entry key="app/src/main/res/layout/fragment_hw.xml" value="0.30445752733389403" />
+        <entry key="app/src/main/res/layout/fragment_inputfields_1.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/fragment_inputfields_2.xml" value="0.2965811965811966" />
+        <entry key="app/src/main/res/layout/fragment_registration_input.xml" value="0.2965811965811966" />
+        <entry key="app/src/main/res/layout/fragment_schedule.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.30310880829015546" />
+        <entry key="app/src/main/res/layout/item_account_courses.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_account_logout.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_account_profile.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_course.xml" value="0.3094017094017094" />
         <entry key="app/src/main/res/layout/item_date.xml" value="0.67" />
         <entry key="app/src/main/res/layout/item_date_selected.xml" value="0.5896841553560555" />
+        <entry key="app/src/main/res/layout/item_event.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_general_fragment_times.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_hour.xml" value="0.3770833333333333" />
         <entry key="app/src/main/res/layout/item_month.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/item_section.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_spinner.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/item_task.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_weekdate.xml" value="1.1" />
+        <entry key="app/src/main/res/layout/layout_schedule_button.xml" value="0.26875" />
+        <entry key="app/src/main/res/menu/menu_schedule.xml" value="0.3770833333333333" />
       </map>
     </option>
   </component>

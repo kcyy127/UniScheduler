@@ -89,7 +89,7 @@ public class DateAdapter extends BaseAdapter {
 //            });
 
             if (selectedDate.isEqual(new LocalDate(monthDate.getYear(), monthDate.getMonthOfYear(), dates.get(datePosition)))) {
-                convertView.setBackgroundResource(R.drawable.date_selected);
+                convertView.setBackgroundResource(R.drawable.background_date_selected);
                 tvDate.setTextColor(context.getResources().getColor(R.color.my_dark_background));
             } else {
                 convertView.setBackgroundResource(0);

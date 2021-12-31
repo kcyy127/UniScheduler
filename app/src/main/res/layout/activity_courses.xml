@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.CoursesActivity">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="24dp"
+            android:background="@null"
+            android:src="@drawable/icon_back"
+            app:layout_constraintBottom_toBottomOf="@id/tvHeading"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvHeading" />
+
+        <TextView
+            android:id="@+id/tvHeading"
+            style="@style/TextView.UniScheduler.Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/margin_heading_top"
+            android:text="Courses"
+            app:layout_constraintLeft_toRightOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/icon_courses"
+            app:layout_constraintTop_toTopOf="@id/tvHeading"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="42dp"
+            android:id="@+id/btnAdd" />
+
+        <TextView
+            android:id="@+id/tvCurrent"
+            style="@style/TextView.UniScheduler.Subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="42dp"
+            android:layout_marginTop="24dp"
+            android:text="Current"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="42dp"
+            app:layout_constraintTop_toBottomOf="@id/tvCurrent"
+            android:layout_marginTop="24dp"
+            android:id="@+id/rvCurrent" />
+
+        <TextView
+        android:id="@+id/tvPast"
+        style="@style/TextView.UniScheduler.Subheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="42dp"
+        android:layout_marginTop="24dp"
+        android:text="Past"
+        app:layout_constraintTop_toBottomOf="@id/rvCurrent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="42dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPast"
+            android:layout_marginTop="24dp"
+            android:id="@+id/rvPast" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

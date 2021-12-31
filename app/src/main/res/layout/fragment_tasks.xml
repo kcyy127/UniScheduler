@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="36dp"
+        android:paddingHorizontal="42dp"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:orientation="vertical"
+        tools:context=".Fragments.TasksFragment">
+
+        <TextView
+            android:id="@+id/tvUpcoming"
+            style="@style/TextView.UniScheduler.Subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming week"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUpcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/tvUpcoming" />
+
+    </LinearLayout>
+</layout>

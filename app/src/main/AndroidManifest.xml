@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.unischeduler">
 
     <application
+        android:name=".UniSchedulerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,13 +12,48 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniScheduler.Default">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Activities.UpdateProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".Activities.CreateTaskActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activities.CreateEventActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activities.AddCourseActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".Activities.CoursesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.IndividualCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.ScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.HomeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

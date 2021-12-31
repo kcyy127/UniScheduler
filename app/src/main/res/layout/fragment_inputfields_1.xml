@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/layoutInput1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Fragments.RegistrationInputFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til1"
+            style="@style/TextInputLayout.UniScheduler.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            app:startIconDrawable="@drawable/icon_email"
+            app:startIconTint="@color/my_white">
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/etFirst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_medium"
+                android:hint="Email"
+                android:paddingVertical="18dp"
+                android:textColor="@color/my_white"
+                android:textColorHint="@color/my_white_50"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til2"
+            style="@style/TextInputLayout.UniScheduler.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/til1"
+            android:layout_marginTop="@dimen/margin_input_between"
+            app:startIconDrawable="@drawable/icon_password"
+            app:startIconTint="@color/my_white"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/my_white_50">
+
+
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/etSecond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_medium"
+                android:hint="Password"
+                android:paddingVertical="18dp"
+                android:textColor="@color/my_white"
+                android:textColorHint="@color/my_white_50"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tvChange"
+            style="@style/TextView.UniScheduler.Default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/til2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="I already have an account"
+            android:textColor="@color/my_white_50" />
+
+    </RelativeLayout>
+
+</layout>

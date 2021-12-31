@@ -53,7 +53,7 @@ public class DateAdapterTwo extends RecyclerView.Adapter<DateAdapterTwo.DateView
                     if (dateViewHolder.getAdapterPosition() == RecyclerView.NO_POSITION) {
                         Log.i(TAG, "No Position");
                     } else {
-                        selectedDate = dtmInterface.customClick(monthDate, dates.get(dateViewHolder.getAdapterPosition()));
+                        selectedDate = dtmInterface.dateClick(monthDate, dates.get(dateViewHolder.getAdapterPosition()));
                         Log.i(TAG, "New selected date is " + DateTimeFormat.forPattern("YYYY MMM dd").print(selectedDate));
                     }
 
@@ -102,8 +102,16 @@ public class DateAdapterTwo extends RecyclerView.Adapter<DateAdapterTwo.DateView
 
         public void changeDisplay(boolean isSelected) {
             if (isSelected) {
-                itemView.setBackgroundResource(R.drawable.date_selected);
+                itemView.setBackgroundResource(R.drawable.background_date_selected);
                 tvDate.setTextColor(context.getResources().getColor(R.color.my_dark_background));
+                itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Log.i(TAG, DateTimeFormat.forPattern("YYYY MMM dd").print(selectedDate) + "is long clicked!");
+                        dtmInterface.dateLongClick();
+                        return true;
+                    }
+                });
             } else {
                 itemView.setBackgroundResource(0);
                 tvDate.setTextColor(context.getResources().getColor(R.color.my_white));

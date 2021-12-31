@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.CreateEventActivity">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="24dp"
+            android:background="@null"
+            android:src="@drawable/icon_back"
+            app:layout_constraintBottom_toBottomOf="@id/tvHeading"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvHeading"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/tvHeading"
+            style="@style/TextView.UniScheduler.Heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_heading_top"
+            android:text="New Event"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="12dp"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toTopOf="@id/btnCreate"
+            app:layout_constraintTop_toBottomOf="@id/tvHeading">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/layoutInputMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="42dp"
+                    android:layout_marginTop="32dp"
+                    android:divider="@drawable/divider"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    app:layout_constraintTop_toBottomOf="@id/tvHeading">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/inputName">
+
+                        <EditText
+                            android:id="@+id/etName"
+                            style="@style/EditText.UniScheduler.Create"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Event name"
+                            android:inputType="textCapSentences" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/inputLocation">
+
+                        <EditText
+                            android:id="@+id/etLocation"
+                            style="@style/EditText.UniScheduler.Create"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Location"
+                            android:inputType="textCapSentences" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconDrawable="@drawable/icon_university"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/my_white"
+                        android:id="@+id/inputDate">
+
+                        <EditText
+                            android:id="@+id/etDate"
+                            style="@style/EditText.UniScheduler.Create"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Date"
+                            android:inputType="date" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@drawable/divider"
+                        android:orientation="horizontal"
+                        android:showDividers="middle">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:endIconDrawable="@drawable/icon_university"
+                            app:endIconMode="custom"
+                            app:endIconTint="@color/my_white"
+                            android:id="@+id/inputTime">
+
+                            <EditText
+                                android:id="@+id/etTime"
+                                style="@style/EditText.UniScheduler.Create"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Time"
+                                android:inputType="date" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/TextInputLayout.UniScheduler.ExposedDropdownMenu.Create"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/inputDuration">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/etDuration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/etFirst"
+                                android:fontFamily="@font/ubuntu_medium"
+                                android:hint="Duration"
+                                android:paddingVertical="16dp"
+                                android:textColor="@color/my_white"
+                                android:textColorHint="@color/my_white_50"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.ExposedDropdownMenu.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/inputCourse">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etCourse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/etFirst"
+                            android:fontFamily="@font/ubuntu_medium"
+                            android:hint="Course affiliation"
+                            android:paddingVertical="16dp"
+                            android:textColor="@color/my_white"
+                            android:textColorHint="@color/my_white_50"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/cbRepeat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="42dp"
+                    android:layout_marginTop="32dp"
+                    android:buttonTint="@color/my_white_20"
+                    android:checked="false"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:text="Repeat"
+                    android:textColor="@color/my_white"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutInputMain" />
+
+
+                <LinearLayout
+                    android:id="@+id/layoutInputRepeat1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="42dp"
+                    android:layout_marginTop="12dp"
+                    android:divider="@drawable/divider"
+                    android:orientation="vertical"
+                    android:showDividers="middle"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/cbRepeat">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        app:chipSpacingHorizontal="8dp"
+                        app:singleLine="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip0"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip1"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="M" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip2"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="T" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip3"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="W" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip4"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="T" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip5"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip6"
+                            style="@style/Chip.UniScheduler.DOW"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.ExposedDropdownMenu.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/inputInterval">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etInterval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ubuntu_medium"
+                            android:hint="Interval"
+                            android:paddingVertical="16dp"
+                            android:textColor="@color/my_white"
+                            android:textColorHint="@color/my_white_50"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutInputRepeat2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="24dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="42dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/btnCreate"
+                    app:layout_constraintTop_toBottomOf="@id/layoutInputRepeat1">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:endIconDrawable="@drawable/icon_university"
+                        app:endIconMode="custom"
+                        app:endIconTint="@color/my_white"
+                        android:id="@+id/inputEndDate">
+
+                        <EditText
+                            android:id="@+id/etEndDate"
+                            style="@style/EditText.UniScheduler.Create"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="End date"
+                            android:inputType="date" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="108dp">
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:background="@color/my_white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"
+                            android:text="or"
+                            android:textAlignment="center"
+                            android:textSize="12sp" />
+
+
+                        <View
+                            android:layout_width="24dp"
+                            android:layout_height="1dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:background="@color/my_white" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/TextInputLayout.UniScheduler.OutlinedBox.Create"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/inputOccurence">
+
+                        <EditText
+                            android:id="@+id/etOccurence"
+                            style="@style/EditText.UniScheduler.Create"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Number of occurences"
+                            android:inputType="number" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreate"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="@dimen/margin_heading_top"
+            android:backgroundTint="@color/my_purple"
+            android:fontFamily="@font/ubuntu_bold"
+            android:letterSpacing="0"
+            android:paddingVertical="12dp"
+            android:text="CREATE"
+            android:textColor="@color/my_dark_background"
+            android:textSize="16sp"
+            app:cornerRadius="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
