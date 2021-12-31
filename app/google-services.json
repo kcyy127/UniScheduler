@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "971374836657",
+    "project_id": "unischeduler-kcyy",
+    "storage_bucket": "unischeduler-kcyy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971374836657:android:8edf8f58d1edfd31e49b90",
+        "android_client_info": {
+          "package_name": "com.example.unischeduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971374836657-ujeubt7s57gqvstdi2obsfakqigp4e3j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.unischeduler",
+            "certificate_hash": "457ed88a6ed1c6b279326dd5c686d682623c3caf"
+          }
+        },
+        {
+          "client_id": "971374836657-jboev5mv4fg3hfcjhk8id1ph4r35qnsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZFVT3dOcYdAFaItiEwM0JddJY-QSXssM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971374836657-jboev5mv4fg3hfcjhk8id1ph4r35qnsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
