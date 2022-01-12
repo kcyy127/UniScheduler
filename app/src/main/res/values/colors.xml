@@ -8,14 +8,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="my_dark_background">#1F1D2B</color>
+    <color name="my_dark_background">#FF1F1D2B</color>
+    <color name="my_dark_background_80">#CC1F1D2B</color>
     <color name="my_white_20">#3FFF</color>
     <color name="my_white_40">#6FFF</color>
     <color name="my_white_50">#80FFFFFF</color>
     <color name="my_white">#FFFF</color>
     <color name="my_purple">#E3D3FD</color>
-    <color name="my_green">#6BB25B</color>
-    <color name="my_red">#F3B5B5</color>
-    <color name="my_yellow">#FFF8B8</color>
+    <color name="my_green">#FF88D378</color>
+    <color name="my_red">#FFFCA6A6</color>
+    <color name="my_yellow">#FFFAE6A0</color>
+    <color name="my_blue">#8AB6F8</color>
     <color name="my_logout_red">#FFE65555</color>
 </resources>

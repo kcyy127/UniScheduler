@@ -22,6 +22,8 @@
         <entry key="app/src/main/res/drawable/color_chip_background.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/date_selected.xml" value="0.3697916666666667" />
         <entry key="app/src/main/res/drawable/divider.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/divider_details_dialog.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/gradient_side_fade.xml" value="0.3208578637510513" />
         <entry key="app/src/main/res/drawable/icon_account.xml" value="0.31666666666666665" />
         <entry key="app/src/main/res/drawable/icon_add.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_add_image.xml" value="0.3208578637510513" />
@@ -31,10 +33,12 @@
         <entry key="app/src/main/res/drawable/icon_checkmark.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_courses.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_email.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_location.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/icon_logout.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_next.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_password.xml" value="0.3260683760683761" />
         <entry key="app/src/main/res/drawable/icon_profile.xml" value="0.3260683760683761" />
+        <entry key="app/src/main/res/drawable/icon_repeat.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/icon_search.xml" value="0.3208578637510513" />
         <entry key="app/src/main/res/drawable/icon_test.xml" value="0.2890625" />
         <entry key="app/src/main/res/drawable/icon_univeristy.xml" value="0.3260683760683761" />
@@ -59,6 +63,8 @@
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.3094017094017094" />
         <entry key="app/src/main/res/layout/activity_update_profile.xml" value="0.2965811965811966" />
         <entry key="app/src/main/res/layout/dialog_delete_confirmation.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/dialog_delete_task_event.xml" value="0.3094017094017094" />
+        <entry key="app/src/main/res/layout/dialog_event_detail.xml" value="0.3094017094017094" />
         <entry key="app/src/main/res/layout/dialog_section.xml" value="0.3094017094017094" />
         <entry key="app/src/main/res/layout/fragment_general.xml" value="0.3094017094017094" />
         <entry key="app/src/main/res/layout/fragment_h_w.xml" value="0.2965811965811966" />

@@ -5,39 +5,27 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.example.unischeduler.Activities.ScheduleActivity;
 import com.example.unischeduler.Adapters.HourAdapter;
 import com.example.unischeduler.Models.ScheduleEvent;
 import com.example.unischeduler.R;
 import com.example.unischeduler.UniSchedulerApplication;
 import com.example.unischeduler.databinding.FragmentScheduleBinding;
 import com.example.unischeduler.databinding.ItemEventBinding;
-import static com.example.unischeduler.Constants.*;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import org.joda.time.Instant;
-import org.joda.time.LocalDate;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -49,6 +37,7 @@ public class ScheduleFragment extends Fragment {
     private static final String TAG = "ScheduleFragment";
 
     private List<ScheduleEvent> events;
+    private ArrayList<String> eventIds;
 
     private FragmentScheduleBinding binding;
     float density;
@@ -61,7 +50,7 @@ public class ScheduleFragment extends Fragment {
     public ScheduleFragment() {
     }
 
-    public static ScheduleFragment newInstance(ArrayList<ScheduleEvent> events) {
+    public static ScheduleFragment newInstance(ArrayList<ScheduleEvent> events, ArrayList<String> eventIds) {
 
 
         if (events.size() == 0) {
@@ -75,6 +64,7 @@ public class ScheduleFragment extends Fragment {
         ScheduleFragment fragment = new ScheduleFragment();
         Bundle args = new Bundle();
         args.putParcelableArrayList("events", events);
+        args.putStringArrayList("ids", eventIds);
         fragment.setArguments(args);
         return fragment;
     }
@@ -98,6 +88,7 @@ public class ScheduleFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Bundle args = getArguments();
         this.events = args.getParcelableArrayList("events");
+        this.eventIds = args.getStringArrayList("ids");
 
         if (this.events.size() == 0) {
             Log.i(TAG, "events size is 0");
@@ -120,7 +111,10 @@ public class ScheduleFragment extends Fragment {
 
     private void drawEvents() {
 //        int scrollTo = binding.container.getBottom();
-        for (ScheduleEvent event : events) {
+        for (int i = 0; i < events.size(); i++) {
+            ScheduleEvent event = events.get(i);
+            int position = i;
+
             Log.i(TAG, "drawing " + event.getName());
             ItemEventBinding eventBinding = ItemEventBinding.inflate(getLayoutInflater(), binding.container, false);
             eventBinding.cvContainer.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +123,30 @@ public class ScheduleFragment extends Fragment {
                     Log.i(TAG, "Clicked " + event.getName());
                 }
             });
-            eventBinding.ivColor.setColorFilter(Color.parseColor("#8AB6F8"));
+
+            eventBinding.cvContainer.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ScheduleActivity) getActivity()).showDeleteEventDialog(position);
+                    return true;
+                }
+            });
+
+            eventBinding.cvContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ((ScheduleActivity) getActivity()).showEventDetails(position);
+                }
+            });
+
+            int categoryColor;
+            if (event.getCourse_affil().equals("")) {
+                categoryColor = ContextCompat.getColor(getActivity(), R.color.my_blue);
+            } else {
+                categoryColor = ContextCompat.getColor(getActivity(), R.color.my_red);
+            }
+
+            eventBinding.ivColor.setColorFilter(categoryColor);
             eventBinding.tvHeading.setText(event.getName());
             eventBinding.tvDesc.setText(formatTime(event.getTime())+ " | " + formatDuration(event.getDuration()) + " | " + event.getLocation());
 

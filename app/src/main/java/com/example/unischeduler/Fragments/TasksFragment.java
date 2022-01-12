@@ -70,12 +70,6 @@ public class TasksFragment extends Fragment {
 
         Log.i(TAG, String.valueOf(tasks.size()));
 
-//        ArrayList<Task> tempList = new ArrayList<>(Arrays.asList(
-//                new Task("Walk dog", LocalDate.now(), new LocalTime(23,59)),
-//                new Task("Dishes", LocalDate.now(), new LocalTime(23,59)),
-//                new Task("Assignment", LocalDate.now(), new LocalTime(23,59))
-//        ));
-
         upcomingAdapter = new TaskAdapter(getActivity(), tasks, taskIds, app.getCurrentUser().getUid());
         binding.rvUpcoming.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.rvUpcoming.setAdapter(upcomingAdapter);

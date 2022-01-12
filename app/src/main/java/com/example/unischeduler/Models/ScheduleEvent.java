@@ -22,24 +22,26 @@ import java.util.stream.LongStream;
 public class ScheduleEvent implements Parcelable {
     private List<Long> dates;
     private long time, duration;
-    private String location, name;
+    private String location, name, course_affil;
 
     public ScheduleEvent() {
         this.dates = new ArrayList<>();
     }
 
-    public ScheduleEvent(String name, String location) {
+    public ScheduleEvent(String name, String location, String course_affil) {
         this.location = location;
         this.name = name;
+        this.course_affil = course_affil;
         this.dates = new ArrayList<>();
     }
 
-    public ScheduleEvent(String name, List<Long> dates, long time, long duration, String location) {
+    public ScheduleEvent(String name, List<Long> dates, long time, long duration, String location, String course_affil) {
         this.dates = dates;
         this.time = time;
         this.duration = duration;
         this.location = location;
         this.name = name;
+        this.course_affil = course_affil;
     }
 
     protected ScheduleEvent(Parcel in) {
@@ -50,6 +52,7 @@ public class ScheduleEvent implements Parcelable {
         location = in.readString();
         name = in.readString();
         in.readList(this.dates, List.class.getClassLoader());
+        course_affil = in.readString();
     }
 
     public static final Creator<ScheduleEvent> CREATOR = new Creator<ScheduleEvent>() {
@@ -168,17 +171,25 @@ public class ScheduleEvent implements Parcelable {
         this.name = name;
     }
 
+    public String getCourse_affil() {
+        return course_affil;
+    }
+
+    public void setCourse_affil(String course_affil) {
+        this.course_affil = course_affil;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ScheduleEvent)) return false;
-        ScheduleEvent that = (ScheduleEvent) o;
-        return getTime() == that.getTime() && getDuration() == that.getDuration() && Objects.equals(getDates(), that.getDates()) && Objects.equals(getLocation(), that.getLocation()) && Objects.equals(getName(), that.getName());
+        ScheduleEvent event = (ScheduleEvent) o;
+        return getTime() == event.getTime() && getDuration() == event.getDuration() && Objects.equals(getDates(), event.getDates()) && Objects.equals(getLocation(), event.getLocation()) && Objects.equals(getName(), event.getName()) && Objects.equals(getCourse_affil(), event.getCourse_affil());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getDates(), getTime(), getDuration(), getLocation(), getName());
+        return Objects.hash(getDates(), getTime(), getDuration(), getLocation(), getName(), getCourse_affil());
     }
 
     @Override
@@ -193,6 +204,7 @@ public class ScheduleEvent implements Parcelable {
         dest.writeString(this.location);
         dest.writeString(this.name);
         dest.writeList(this.dates);
+        dest.writeString(this.course_affil);
     }
 
     public HashMap<String, Object> toHashMap() {

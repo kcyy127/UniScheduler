@@ -70,7 +70,7 @@ public class Section implements Parcelable {
         for (int i = 1; i<=7; i++) {
             if (dowBool[i-1]) {
                 ScheduleEvent event = new ScheduleEvent(course.getCode_dep() + " " + course.getCode_num() + " " + meetingType,
-                        building + " " + room);
+                        building + " " + room, "");
                 event.addTime(startTime);
                 event.addDuration(durationMinutes);
                 LocalDate startDate = nextOrSame(toDate(quarter.getStart()), i);

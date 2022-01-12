@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -270,9 +271,9 @@ public class CreateEventActivity extends AppCompatActivity {
                     return;
                 }
 
-                ScheduleEvent event = new ScheduleEvent(eventName, location);
-                event.addTime(time);
-                event.setDuration(duration);
+//                ScheduleEvent event = new ScheduleEvent(eventName, location, courseId);
+//                event.addTime(time);
+//                event.setDuration(duration);
 
                 ArrayList<ScheduleEvent> events = new ArrayList<>();
 
@@ -336,9 +337,9 @@ public class CreateEventActivity extends AppCompatActivity {
                         LocalDate toStart = ScheduleEvent.nextOrSame(startDate, dows.get(chipId));
                         Log.i(TAG, "dow: " + String.valueOf(dows.get(chipId)));
 
-                        ScheduleEvent temp = new ScheduleEvent(event.getName(), event.getLocation());
-                        temp.setTime(event.getTime());
-                        temp.setDuration(event.getDuration());
+                        ScheduleEvent temp = new ScheduleEvent(eventName, location, courseId);
+                        temp.addTime(time);
+                        temp.setDuration(duration);
 
                         if (occurrences == -1) {
                             temp.addDatesByEnd(toStart, endDate, interval);
@@ -351,8 +352,11 @@ public class CreateEventActivity extends AppCompatActivity {
                     }
                 } else {
                     Log.i(TAG, "repeat not checked");
-                    event.addDatesByOccurrences(startDate, 0, 1);
-                    events.add(event);
+                    ScheduleEvent temp = new ScheduleEvent(eventName, location, courseId);
+                    temp.addTime(time);
+                    temp.setDuration(duration);
+                    temp.addDatesByOccurrences(startDate, 0, 1);
+                    events.add(temp);
                 }
 
                 createEvents(events);
@@ -460,11 +464,9 @@ public class CreateEventActivity extends AppCompatActivity {
         WriteBatch batch = db.batch();
 
         for (ScheduleEvent event : events) {
-            HashMap<String, Object> extra = event.toHashMap();
-            extra.put("course_affil", courseId);
 
             batch.set(db.collection(KEY_COLLECTION_USERS).document(app.getCurrentUser().getUid()).collection(KEY_COLLECTION_SCHEDULES)
-                    .document(), extra);
+                    .document(), event);
         }
 
         batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -472,7 +474,7 @@ public class CreateEventActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Log.i(TAG, "batch commit successful");
-                    onBackPressed();
+                    startActivity(new Intent(CreateEventActivity.this, ScheduleActivity.class));
                 } else {
                     Log.e(TAG, "batch commit failed", task.getException());
                 }

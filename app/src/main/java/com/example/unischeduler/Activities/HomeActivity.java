@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,7 +16,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.unischeduler.Constants;
 import com.example.unischeduler.Models.Course;
 import com.example.unischeduler.Models.Instructor;
 import com.example.unischeduler.Models.Quarter;
@@ -27,24 +27,17 @@ import com.example.unischeduler.R;
 import com.example.unischeduler.UniSchedulerApplication;
 import com.example.unischeduler.databinding.ActivityHomeBinding;
 import static com.example.unischeduler.Constants.*;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
+
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.WriteBatch;
 
 import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class HomeActivity extends AppCompatActivity implements MonthToHomeInterface {
     private static final String TAG = "HomeActivity";
@@ -59,6 +52,7 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
     private MonthAdapter monthAdapter;
     private ArrayList<LocalDate> months;
     private int oldAdapterPosition;
+    private RecyclerView.OnScrollListener endlessListener;
 
     private Intent launchIntent;
 
@@ -120,16 +114,52 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
         selectedDate.setValue(((UniSchedulerApplication) HomeActivity.this.getApplication()).getSelectedDate());
 
         if (launchIntent.getStringExtra("from") != null && launchIntent.getStringExtra("from").equals("ScheduleActivity")) {
-            // set date to be on top (absolute position)
-//            selectedDate.setValue((LocalDate) launchIntent.getSerializableExtra(INTENT_KEY_SELECTED_DATE));
             binding.rvCalendar.scrollToPosition(getPosition(selectedDate.getValue()));
         } else {
-            // set selected date to current date on app launch
-            CenterSmoothScroller smoothScroller = getSmoothScroller(selectedDate.getValue());
-            linearLayoutManager.startSmoothScroll(smoothScroller);
+//            CenterSmoothScroller smoothScroller = getSmoothScroller(selectedDate.getValue());
+//            linearLayoutManager.startSmoothScroll(smoothScroller);
+            binding.rvCalendar.scrollToPosition(getPosition(selectedDate.getValue()));
         }
 
+        endlessListener = new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
+                int posTop = linearLayoutManager.findFirstVisibleItemPosition();
+                int posBottom = linearLayoutManager.findLastVisibleItemPosition();
+
+                if (posTop == 0) {
+                    Log.i(TAG, "at the top");
+                    LocalDate origStart = months.get(0);
+                    for (int i = -1; i > -4; i--) {
+                        months.add(0, origStart.plusMonths(i));
+                    }
+                    binding.rvCalendar.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            monthAdapter.notifyItemRangeInserted(0, 3);
+                        }
+                    });
+                }
+
+                if (posBottom == months.size() - 1) {
+                    Log.i(TAG, "at the bottom");
+                    LocalDate origStart = months.get(months.size() - 1);
+                    for (int i = 1; i < 4; i++) {
+                        months.add(origStart.plusMonths(i));
+                    }
+                    binding.rvCalendar.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            monthAdapter.notifyItemRangeInserted(months.size() - 4, 3);
+                        }
+                    });
+                }
+            }
+        };
+
+        binding.rvCalendar.addOnScrollListener(endlessListener);
 
     }
 

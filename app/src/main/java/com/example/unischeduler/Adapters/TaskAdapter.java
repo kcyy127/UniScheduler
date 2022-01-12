@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.unischeduler.Activities.ScheduleActivity;
 import com.example.unischeduler.Models.Task;
 import com.example.unischeduler.UniSchedulerApplication;
 import com.example.unischeduler.databinding.ItemCourseBinding;
@@ -63,7 +64,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        holder.bind(tasks.get(position), taskIds.get(position));
+        holder.bind(position, tasks.get(position), taskIds.get(position));
     }
 
     @Override
@@ -80,7 +81,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             this.binding = binding;
         }
 
-        public void bind(Task task, String id) {
+        public void bind(int position, Task task, String id) {
             binding.tvName.setText(task.getName());
             LocalDateTime localDateTime = Instant.ofEpochSecond(task.getDate() + task.getTime()).toDateTime().toLocalDateTime();
             binding.tvDesc.setText(formatter.print(localDateTime));
@@ -111,6 +112,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                         default:
                             break;
                     }
+                }
+            });
+
+            binding.cvContainer.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    ((ScheduleActivity) context).showDeleteTaskDialog(position);
+                    return true;
                 }
             });
         }

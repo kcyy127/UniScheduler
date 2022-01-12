@@ -15,29 +15,42 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_heading_top"
             android:text="Error"
-            app:layout_constraintStart_toStartOf="@id/rvCalendar"
+            app:layout_constraintStart_toStartOf="@id/frameLayout"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnAccount"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@drawable/icon_account"
             android:background="@null"
+            android:src="@drawable/icon_account"
             app:layout_constraintBottom_toBottomOf="@id/tvDate"
-            app:layout_constraintTop_toTopOf="@id/tvDate"
-            app:layout_constraintRight_toRightOf="@id/rvCalendar" />
+            app:layout_constraintRight_toRightOf="@id/frameLayout"
+            app:layout_constraintTop_toTopOf="@id/tvDate" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:requiresFadingEdge="vertical"
-            android:id="@+id/rvCalendar"
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginHorizontal="42dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+            app:layout_constraintTop_toBottomOf="@id/tvDate">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:requiresFadingEdge="vertical" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_side_fade"/>
+
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

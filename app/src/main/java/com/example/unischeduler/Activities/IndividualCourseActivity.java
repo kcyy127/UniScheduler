@@ -20,7 +20,7 @@ import com.example.unischeduler.Models.Section;
 import com.example.unischeduler.R;
 import com.example.unischeduler.UniSchedulerApplication;
 import com.example.unischeduler.databinding.ActivityIndividualCourseBinding;
-import com.example.unischeduler.databinding.DialogDeleteConfirmationBinding;
+import com.example.unischeduler.databinding.DialogDeleteCourseBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -105,7 +105,7 @@ public class IndividualCourseActivity extends AppCompatActivity {
     private void showDeleteConfirmationDialog() {
         if (deleteDialog == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(IndividualCourseActivity.this);
-            DialogDeleteConfirmationBinding binding = DialogDeleteConfirmationBinding.inflate(getLayoutInflater(), null, false);
+            DialogDeleteCourseBinding binding = DialogDeleteCourseBinding.inflate(getLayoutInflater(), null, false);
             builder.setView(binding.getRoot());
 
             deleteDialog = builder.create();
