@@ -218,6 +218,9 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
 
     private class PopulateUniDBAsyncTask extends AsyncTask<Void, Void, Void> {
 
+
+        String uniDocId = "UsXHNhVxa5hY2zBLw26R";
+
         @RequiresApi(api = Build.VERSION_CODES.R)
         @Override
         protected Void doInBackground(Void... voids) {
@@ -250,27 +253,24 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
         }
 
         private void addQuarters() {
-            String ucsd_id = "5J53UPI3xix9WL0KXDSu";
             WriteBatch batch = db.batch();
             ArrayList<Quarter> quarters = new ArrayList<>();
             quarters.add(new Quarter(2021, "fall",
-                    new LocalDate(2021, 9, 23),
-                    new LocalDate(2021, 12, 3)));
-            quarters.add(new Quarter(2022, "winter",
-                    new LocalDate(2022, 1, 3),
-                    new LocalDate(2022, 3, 11)));
+                    new LocalDate(2022, 9, 6),
+                    new LocalDate(2022, 12, 18)));
             quarters.add(new Quarter(2022, "spring",
-                    new LocalDate(2022, 3, 28),
-                    new LocalDate(2022, 6, 3)));
-            quarters.add(new Quarter(2022, "summer_i",
-                    new LocalDate(2022, 6, 27),
-                    new LocalDate(2022, 7, 29)));
-            quarters.add(new Quarter(2022, "summer_ii",
-                    new LocalDate(2022, 8, 1),
-                    new LocalDate(2022, 9, 2)));
+                    new LocalDate(2022, 1, 27),
+                    new LocalDate(2022, 5, 13)));
+
+            quarters.add(new Quarter(2022, "fall",
+                    new LocalDate(2022, 9, 5),
+                    new LocalDate(2022, 12, 17)));
+            quarters.add(new Quarter(2023, "spring",
+                    new LocalDate(2022, 1, 26),
+                    new LocalDate(2022, 5, 19)));
 
             for (int i = 0; i< quarters.size(); i++) {
-                batch.set(db.collection("universities").document(ucsd_id).collection("quarters").document(),
+                batch.set(db.collection("universities").document(uniDocId).collection("quarters").document(),
                         quarters.get(i));
             }
             batch.commit();
@@ -278,28 +278,23 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
 
         private void addCourses() {
 
-            ArrayList<Course> courses = new ArrayList<Course>();
-            courses.add(new Course("Honors Linear Algebra", "MATH", "31AH"));
-            courses.add(new Course("Honors Multivariable Calculus", "MATH", "31BH"));
-            courses.add(new Course("Honors Vector Calculus", "MATH", "31CH"));
-            courses.add(new Course("Introduction to Differential Equations", "MATH", "20D"));
-            courses.add(new Course("Introduction to Programming and Computational Problem-Solving I",
-                    "CSE", "8A"));
-            courses.add(new Course("Introduction to Programming and Computational Problem-Solving II",
-                    "CSE", "8B"));
-            courses.add(new Course("Basic Data Structures and Object-Oriented Design", "CSE", "12"));
-            courses.add(new Course("Computer Organization and Systems Programming", "CSE", "30"));
-            courses.add(new Course("Debating Multiculturalism: Race, Ethnicity, and Class in American Societies", "ANTH", "23"));
-            courses.add(new Course("Perspectives on a Changing Planet", "SYN", "1"));
-            courses.add(new Course("Explorations of a Changing Planet", "SYN", "2"));
-            courses.add(new Course("Financial Accounting", "MGT", "4"));
-            courses.add(new Course("Managerial Accounting", "MGT", "5"));
+            ArrayList<Course> courses = new ArrayList<>();
+            courses.add(new Course("Acting and Life", "THR", "101"));
+            courses.add(new Course("Topics in Entrepreneurship", "MGT", "12"));
+            courses.add(new Course("A Deep Look Into Depression", "PSYCH", "420"));
+            courses.add(new Course("Business Project Management", "MGT", "412"));
+            courses.add(new Course("The History of Hollywoo", "THR", "804"));
+            courses.add(new Course("Basic Self Defense", "PE", "10"));
+            courses.add(new Course("Queer Theory", "GNDR", "105"));
+            courses.add(new Course("Greeting Card Art", "ART", "430"));
+            courses.add(new Course("Creative Writing I", "WRT", "6A"));
+            courses.add(new Course("Creative Writing II", "WRT", "6B"));
 
             WriteBatch batch = db.batch();
 
-//            for (int i = 0; i < courses.size(); i++) {
-//                batch.set(db.collection(KEY_COLLECTION_UNIVERSITIES).document(KEY_UCSD_DOC_ID).collection(KEY_COLLECTION_COURSES).document(), courses.get(i));
-//            }
+            for (int i = 0; i < courses.size(); i++) {
+                batch.set(db.collection(KEY_COLLECTION_UNIVERSITIES).document(uniDocId).collection(KEY_COLLECTION_COURSES).document(), courses.get(i));
+            }
 
             batch.commit();
         }
@@ -307,65 +302,62 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
         private void addInstructors() {
 
             ArrayList<Instructor> instructors = new ArrayList<>();
-            instructors.add(new Instructor("Horseman", "Butterscotch"));
-            instructors.add(new Instructor("Carson", "Penny"));
+            instructors.add(new Instructor("Horseman", "Bojack"));
+            instructors.add(new Instructor("Carolyn", "Princess"));
             instructors.add(new Instructor("Fuzzyface", "Meow Meow"));
             instructors.add(new Instructor("Stilton", "Ralph"));
-            instructors.add(new Instructor("Sugarman", "Honey"));
+            instructors.add(new Instructor("Chavez", "Todd"));
+            instructors.add(new Instructor("Peanutbutter", "Mister"));
+            instructors.add(new Instructor("Squooshyface", "Dean"));
+            instructors.add(new Instructor("Nyugen", "Diane"));
 
             WriteBatch batch = db.batch();
 
-//            for (int i = 0; i < instructors.size(); i++) {
-//                batch.set(db.collection(KEY_COLLECTION_UNIVERSITIES).document(KEY_UCSD_DOC_ID).collection(KEY_COLLECTION_INSTRUCTORS).document(),
-//                        instructors.get(i));
-//            }
+            for (int i = 0; i < instructors.size(); i++) {
+                batch.set(db.collection(KEY_COLLECTION_UNIVERSITIES).document(uniDocId).collection(KEY_COLLECTION_INSTRUCTORS).document(),
+                        instructors.get(i));
+            }
 
             batch.commit();
         }
 
         @RequiresApi(api = Build.VERSION_CODES.R)
         private void addSections() {
-            Log.i(TAG, "addSections running");
-
             Random random = new Random();
 
-
-            String uniDocId = null;
-            while (uniDocId == null) {
-                uniDocId = ((UniSchedulerApplication) HomeActivity.this.getApplication()).getUniDocId();
-            }
-            Log.i(TAG, "unidocid is " + uniDocId);
-
-            Quarter winter22 = new Quarter(2022, "winter",
-                    new LocalDate(2022, 1, 3), new LocalDate(2022, 3, 11));
+            Quarter spring22 = new Quarter(2022, "spring",
+                    new LocalDate(2022, 1, 27),
+                    new LocalDate(2022, 5, 13));
 
             ArrayList<Course> courses = new ArrayList<>();
-            courses.add(new Course("Honors Linear Algebra", "MATH", "31AH"));
-            courses.add(new Course("Honors Multivariable Calculus", "MATH", "31BH"));
-            courses.add(new Course("Honors Vector Calculus", "MATH", "31CH"));
-            courses.add(new Course("Introduction to Differential Equations", "MATH", "20D"));
-            courses.add(new Course("Introduction to Programming and Computational Problem-Solving I",
-                    "CSE", "8A"));
-            courses.add(new Course("Introduction to Programming and Computational Problem-Solving II",
-                    "CSE", "8B"));
-            courses.add(new Course("Basic Data Structures and Object-Oriented Design", "CSE", "12"));
-            courses.add(new Course("Computer Organization and Systems Programming", "CSE", "30"));
-            courses.add(new Course("Debating Multiculturalism: Race, Ethnicity, and Class in American Societies", "ANTH", "23"));
-            courses.add(new Course("Perspectives on a Changing Planet", "SYN", "1"));
-            courses.add(new Course("Explorations of a Changing Planet", "SYN", "2"));
-            courses.add(new Course("Financial Accounting", "MGT", "4"));
-            courses.add(new Course("Managerial Accounting", "MGT", "5"));
+            courses.add(new Course("Acting and Life", "THR", "101"));
+            courses.add(new Course("Topics in Entrepreneurship", "MGT", "12"));
+            courses.add(new Course("A Deep Look Into Depression", "PSYCH", "420"));
+            courses.add(new Course("Business Project Management", "MGT", "412"));
+            courses.add(new Course("The History of Hollywoo", "THR", "804"));
+            courses.add(new Course("Basic Self Defense", "PE", "10"));
+            courses.add(new Course("Queer Theory", "GNDR", "105"));
+            courses.add(new Course("Greeting Card Art", "ART", "430"));
+            courses.add(new Course("Creative Writing I", "WRT", "6A"));
+            courses.add(new Course("Creative Writing II", "WRT", "6B"));
+
+
 
             ArrayList<Instructor> instructors = new ArrayList<>();
-            instructors.add(new Instructor("Horseman", "Butterscotch"));
-            instructors.add(new Instructor("Carson", "Penny"));
+            instructors.add(new Instructor("Horseman", "Bojack"));
+            instructors.add(new Instructor("Chavez", "Todd"));
+            instructors.add(new Instructor("Peanutbutter", "Mister"));
+            instructors.add(new Instructor("Carolyn", "Princess"));
+            instructors.add(new Instructor("Carolyn", "Princess"));
             instructors.add(new Instructor("Fuzzyface", "Meow Meow"));
+            instructors.add(new Instructor("Chavez", "Todd"));
             instructors.add(new Instructor("Stilton", "Ralph"));
-            instructors.add(new Instructor("Sugarman", "Honey"));
+            instructors.add(new Instructor("Nyugen", "Diane"));
+            instructors.add(new Instructor("Nyugen", "Diane"));
 
             ArrayList<Section> sections = new ArrayList<>();
 
-            ArrayList<String> buildings = new ArrayList<>(Arrays.asList("PETER", "CENTR", "APM", "GH", "MANDE", "MOS", "WLH", "WFH", "EBU3B"));
+            ArrayList<String> buildings = new ArrayList<>(Arrays.asList("BUILD1", "BUILD2", "BUILD3", "BUILD4", "BUILD5"));
             ArrayList<String> rooms = new ArrayList<>(Arrays.asList("101", "110", "120", "105", "20", "402", "B412"));
 
             Log.i(TAG, "done initializing");
@@ -380,10 +372,18 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
                 double e = Math.random();
                 double f = Math.random();
 
-                Section section = new Section(courses.get((int) (a * courses.size())), winter22, instructors.get((int) (b * instructors.size())));
-                section.addSchedule("LE", buildings.get((int) (c * buildings.size())), rooms.get((int) (d * rooms.size())),
-                        "135", new LocalTime(random.nextInt(18 - 8) + 8, 0), 50);
-                section.addSchedule("DI", buildings.get((int) (e * buildings.size())), rooms.get((int) (f * rooms.size())),
+                Section section = new Section(courses.get((int) (a * courses.size())),
+                        spring22,
+                        instructors.get((int) (a * instructors.size())));
+
+                section.addSchedule("LE",
+                        buildings.get((int) (c * buildings.size())),
+                        rooms.get((int) (d * rooms.size())),
+                        "135",
+                        new LocalTime(random.nextInt(18 - 8) + 8, 0), 50);
+                section.addSchedule("DI",
+                        buildings.get((int) (e * buildings.size())),
+                        rooms.get((int) (f * rooms.size())),
                         String.valueOf(random.nextInt(6 - 1) + 1),
                         new LocalTime(random.nextInt(18 - 8) + 8, 0), 50);
 
@@ -401,7 +401,7 @@ public class HomeActivity extends AppCompatActivity implements MonthToHomeInterf
                 double e = Math.random();
                 double f = Math.random();
 
-                Section section = new Section(courses.get((int) (a * courses.size())), winter22, instructors.get((int) (b * instructors.size())));
+                Section section = new Section(courses.get((int) (a * courses.size())), spring22, instructors.get((int) (a * instructors.size())));
                 section.addSchedule("LE", buildings.get((int) (c * buildings.size())), rooms.get((int) (d * rooms.size())),
                         "24", new LocalTime(random.nextInt(18 - 8) + 8, 0), 80);
                 section.addSchedule("DI", buildings.get((int) (e * buildings.size())), rooms.get((int) (f * rooms.size())),
